@@ -1,0 +1,10 @@
+node_modules
+dist
+*.local
+.DS_Store
+*.tsbuildinfo
+.claude
+
+# Working material that stays on this machine: reference art, her photos and notes, and progress screenshots
+reference
+docs/checkins

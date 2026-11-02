@@ -1,0 +1,172 @@
+/* The accent fades with the sky: sun by day, moon by night. Registered so that it can animate. */
+@property --accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffb86b;
+}
+
+/* v1's design tokens, with the glass and neutrals warmed slightly for the café. */
+:root {
+  --accent: #ffb86b;
+  transition: --accent 2.2s ease;
+  --ink: #140f0b;
+  --glass: rgba(26, 19, 15, 0.58);
+  --glass-strong: rgba(28, 21, 17, 0.86);
+  --line: rgba(255, 244, 228, 0.16);
+  --fg: #f9f1e4;
+  --muted: #cdbfb0;
+  --sun: #ffb86b;
+  --moon: #9cb6ff;
+  --mint: #7fd8b2;
+  --f-display: 'Sora', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-body: 'Nunito Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color-scheme: dark;
+}
+
+:root[data-time='night'] {
+  --accent: #a9bfff;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  color: var(--fg);
+  font-family: var(--f-body);
+  font-size: 15px;
+  overflow: hidden;
+}
+
+#app {
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.tags {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+  overflow: hidden;
+}
+
+/* v1's hover tag, pointer arrow included. scene/TagProjector sets the transform every frame. */
+.tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  font: 700 0.72rem var(--f-body);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #1b1218;
+  background: var(--fg);
+  border-radius: 999px;
+  padding: 4px 10px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.15s;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+  user-select: none;
+}
+
+.tag::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 8px;
+  height: 8px;
+  background: var(--fg);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.tag.on {
+  opacity: 1;
+}
+
+.glass {
+  background: var(--glass);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+}
+
+/* v1's speech bubble */
+.bubble {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 4;
+  max-width: 240px;
+  background: var(--fg);
+  color: #1b1218;
+  border-radius: 16px;
+  padding: 9px 14px;
+  font: 600 0.9rem/1.35 var(--f-body);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  pointer-events: none;
+  transition: opacity 0.25s;
+}
+
+.bubble::after {
+  content: '';
+  position: absolute;
+  left: calc(50% + var(--tail, 0px));
+  bottom: -6px;
+  width: 12px;
+  height: 12px;
+  background: var(--fg);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.bubble.gone {
+  opacity: 0;
+}
+
+.back-pill {
+  position: absolute;
+  left: 50%;
+  bottom: calc(26px + env(safe-area-inset-bottom, 0px));
+  transform: translateX(-50%);
+  z-index: 6;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 999px;
+  font: 600 0.86rem var(--f-body);
+  color: var(--fg);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.back-pill:hover {
+  background: rgba(46, 34, 26, 0.75);
+}
+
+.back-pill small {
+  color: var(--accent);
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
+}

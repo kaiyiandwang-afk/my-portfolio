@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000">
+  <!-- PLACEHOLDER: replace with a real image, then update src in src/content.ts -->
+  <defs><pattern id="h" width="28" height="28" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><rect width="28" height="28" fill="#b6c8e8"/><rect width="14" height="28" fill="#5a74c9" opacity=".35"/></pattern></defs>
+  <rect width="800" height="1000" fill="url(#h)"/>
+  <rect x="72" y="408" width="656" height="184" rx="14" fill="#1b1218" opacity=".82"/>
+  <g font-family="system-ui,sans-serif" fill="#f7f2ea" text-anchor="middle">
+    <text x="400" y="466" font-size="44" font-weight="700">PLACEHOLDER</text>
+    <text x="400" y="512" font-size="28">Artwork 5</text>
+    <text x="400" y="554" font-size="20" opacity=".8">replace public/art/art-05.svg</text>
+  </g>
+</svg>

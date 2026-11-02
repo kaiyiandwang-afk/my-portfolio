@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>Kaiyi's Café · Kaiyi Wang</title>
+    <meta
+      name="description"
+      content="Kaiyi Wang's portfolio: economics at the University at Buffalo, told through a cozy 3D café."
+    />
+    <meta name="theme-color" content="#2a1c15" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Kaiyi's Café · Kaiyi Wang" />
+    <meta property="og:description" content="Economics at the University at Buffalo, told through a cozy 3D café. Click anything that glows." />
+    <meta property="og:image" content="/og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- TODO(kaiyi): once the site has its real address, make og:image a full URL and add og:url and a canonical link. -->
+    <!--json-ld-->
+    <style>
+      /* Here rather than in a stylesheet, so the plain page works before, or without, any JavaScript. */
+      .plain {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+      }
+      .plain-mode body {
+        overflow: auto;
+        background: #fbf6ec;
+        color: #2a2430;
+      }
+      .plain-mode #root {
+        display: none;
+      }
+      .plain-mode .plain {
+        position: static;
+        width: auto;
+        height: auto;
+        overflow: visible;
+        clip-path: none;
+        display: block;
+        max-width: 42rem;
+        margin: 0 auto;
+        padding: 2.5rem 1.25rem 5rem;
+        font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', sans-serif;
+      }
+      .plain-mode .plain h1 {
+        font-size: 2.2rem;
+        margin: 0 0 0.5rem;
+      }
+      .plain-mode .plain h2 {
+        margin: 2.5rem 0 0.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid #d8cdb8;
+      }
+      .plain-mode .plain h3 {
+        margin: 1.4rem 0 0.2rem;
+      }
+      .plain-mode .plain p {
+        margin: 0.25rem 0;
+      }
+      .plain-mode .plain a {
+        color: #a24a2a;
+      }
+      .plain-mode .plain img {
+        max-width: 100%;
+        height: auto;
+      }
+    </style>
+    <noscript>
+      <style>
+        html body {
+          overflow: auto;
+          background: #fbf6ec;
+          color: #2a2430;
+        }
+        #root,
+        .plain-back {
+          display: none;
+        }
+        .plain {
+          position: static !important;
+          width: auto !important;
+          height: auto !important;
+          clip-path: none !important;
+          overflow: visible !important;
+          max-width: 42rem;
+          margin: 0 auto;
+          padding: 2.5rem 1.25rem;
+          font: 16px/1.6 system-ui, sans-serif;
+        }
+      </style>
+    </noscript>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&family=Nunito+Sans:wght@400;600;700&display=swap"
+    />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@700&text=%E5%92%96%E5%95%A1&display=swap" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <!--plain-content-->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
